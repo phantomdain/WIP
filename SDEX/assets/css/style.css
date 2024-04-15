@@ -1,0 +1,236 @@
+:root {
+    --red: #EE1B24;
+    --black: #333;
+    --dark-gray: #919191;
+    --light-gray: #D5D5D5;
+    --white: #f8f8f8;
+}
+
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap');
+
+@font-face {
+    font-family: "SD";
+    src: url("../fonts/Sddystopian.otf");
+}
+
+@font-face {
+    font-family: "Amuro";
+    src: url("../fonts/Amuro.ttf");
+}
+
+body {
+    font-family: 'Open Sans', sans-serif;
+    font-size: 16px;
+    transition: all 0.2s ease-in-out;
+
+    & .container-fluid {
+        padding: 0;
+        overflow: hidden;
+    }
+}
+
+
+
+header {
+    min-height: 75vh;
+    background: url(../Rectangle-3.svg) bottom no-repeat transparent;
+    background-size: cover;
+
+
+    & .logo {
+        display: flex;
+        align-items: center;
+
+        & img {
+            width: 168px;
+            margin: 30px;
+        }
+
+        &::after {
+            content: '';
+            display: inline-block;
+            width: 100vw;
+            height: 2px;
+            background-color: var(--black);
+
+        }
+    }
+
+    & .hero {
+        position: relative;
+        display: flex;
+        justify-content: baseline;
+
+        & h1 {
+            position: relative;
+            font-family: 'SD', sans-serif;
+            line-height: .9em;
+            font-size: 5em;
+            z-index: 1;
+
+            padding-top: 30vh;
+
+            & span {
+                /* font-size: 10rem; */
+                font-size: clamp(5rem, 10vw + 1rem, 10rem);
+                color: var(--red);
+                -webkit-text-stroke: .30rem var(--black);
+            }
+        }
+
+        & img {
+            position: absolute;
+            top: -30%;
+            right: -25%;
+            z-index: 0;
+        }
+    }
+}
+
+main {
+    position: relative;
+    background: url(../Rectangle-4.svg) 0 50vh no-repeat transparent;
+    background-size: cover;
+}
+
+img.aerial-bg {
+    position: absolute;
+    z-index: -1;
+    right: -25%;
+    width: 100%;
+    top: 70vh;
+    filter: blur(13px);
+}
+
+.intro {
+    position: relative;
+    display: flex;
+    align-items: center;
+    min-height: 90vh;
+
+    & .exia {
+        position: absolute;
+        z-index: 0;
+        max-width: 555px;
+        top: -15%;
+        left: -10%;
+    }
+
+
+    & .desc {
+        position: relative;
+        z-index: 1;
+        padding-inline-start: 22vw;
+    }
+}
+
+.model-releases {
+    & h2 {
+        font-family: 'SD', sans-serif;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        color: var(--red);
+
+        margin-bottom: 30px;
+
+        &::after {
+            content: '';
+            display: inline-block;
+            width: 50vw;
+            height: 2px;
+            background-color: var(--black);
+
+        }
+    }
+
+    & ul.models {
+        display: flex;
+        flex-wrap: wrap;
+        list-style: none;
+        padding-inline-start: 0;
+        margin-bottom: 0;
+
+        & li {
+            flex: 1 0 21%;
+            margin: 1%;
+            cursor: pointer;
+        }
+    }
+}
+
+.model h4 {
+    font-family: 'Amuro', sans-serif;
+    color: var(--red);
+    font-size: 2rem;
+}
+
+h3.modal-title {
+    font-family: 'Amuro', sans-serif;
+    color: var(--black);
+}
+
+.modal-body .right-info>div {
+    margin-bottom: 10px;
+    border-bottom: 1px solid #ccc;
+}
+
+.modal-body p {
+    font-family: 'Open Sans', sans-serif;
+    font-weight: bold;
+    color: var(--black);
+}
+
+.modal-body .label {
+    font-family: 'SD', sans-serif;
+    color: var(--dark-gray);
+    font-weight: normal;
+    margin-bottom: 0;
+}
+
+
+.series {
+    & .s-logo {
+        display: flex;
+        align-items: center;
+    }
+
+    & img {
+        max-width: 100px;
+        margin: 10px;
+    }
+}
+
+footer {
+    background-color: var(--black);
+    padding: 20px 0;
+    color: var(--light-gray);
+
+    & p {
+        margin-bottom: 0;
+    }
+}
+
+@media screen and (max-width: 1200px) {
+    .intro .desc {
+        background: rgba(255, 255, 255, 0.8);
+        padding: 30px;
+    }
+
+}
+
+@media screen and (max-width: 920px) {
+
+    .model-releases ul.models li {
+        flex: 1 0 31%;
+        margin: 1%;
+        cursor: pointer;
+    }
+}
+
+@media screen and (max-width: 768px) {
+
+    .hero h1 span {
+        /* font-size: 10rem; */
+    }
+}
