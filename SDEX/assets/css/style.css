@@ -205,6 +205,25 @@ h3.modal-title {
     }
 }
 
+.cta {
+    text-align: center;
+
+    & .collect {
+        font-family: 'SD', sans-serif;
+        color: var(--red);
+        padding: 20px;
+        background-color: var(--black);
+        border-radius: 20px;
+
+        display: inline-block;
+    }
+}
+
+small p {
+    margin: 0;
+    padding: 30px 0;
+}
+
 footer {
     background-color: var(--black);
     padding: 20px 0;
@@ -266,5 +285,13 @@ footer {
     .intro .exia {
         top: 0%;
         left: 0%;
+    }
+
+    img.aerial-bg {
+        display: none;
+    }
+
+    .model-releases ul.models li {
+        flex-basis: 32%;
     }
 }
