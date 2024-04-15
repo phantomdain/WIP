@@ -230,7 +230,26 @@ footer {
 
 @media screen and (max-width: 768px) {
 
-    .hero h1 span {
-        /* font-size: 10rem; */
+    header {
+        min-height: 60vh;
+
+        &.hero {
+            min-height: 35vh;
+            align-items: end;
+
+            & h1 {
+                font-size: 3em;
+                padding-top: 0;
+            }
+
+            & img {
+                top: -55px;
+            }
+        }
+    }
+
+    .intro .exia {
+        top: 0%;
+        left: 0%;
     }
 }
