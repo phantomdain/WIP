@@ -10947,3 +10947,26 @@ a.text-dark:focus {
     border-right: none !important;
   }
 }
+
+/* palette */
+.palette {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+
+  & .circle {
+    height: 150px;
+    width: 150px;
+    background-color: #ccc;
+    border-radius: 100%;
+    margin: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+    border: 5px solid #f6fafb;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+  }
+}
