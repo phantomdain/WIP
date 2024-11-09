@@ -10970,3 +10970,12 @@ a.text-dark:focus {
     text-align: center;
   }
 }
+
+/* Addition */
+.ff p {
+  font-size: .9rem;
+}
+
+.ff h5 {
+  font-size: 1.15rem;
+}
