@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Random Question Generator</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+    <div class="container">
+        <!-- Card to display the random question -->
+        <div class="card">
+            <div class="card-content">
+                <h2 id="random-question">Loading...</h2>
+                <button id="language-toggle" onclick="toggleLanguage()">Translate to Tagalog</button>
+            </div>
+        </div>
+        <button id="generate-button" onclick="generateRandomQuestion()">Generate Question</button>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
