@@ -202,34 +202,49 @@ const questions = {
 };
 
 let currentLanguage = "english"; // Default language
+let usedQuestions = []; // To keep track of asked questions
 
 // Function to generate a random question from the current language
 function generateRandomQuestion() {
     // Reset language to English before generating a new question
     currentLanguage = "english";
 
-    // Generate a random index based on the current language (English by default)
-    const randomIndex = Math.floor(Math.random() * questions[currentLanguage].length);
-    const randomQuestion = questions[currentLanguage][randomIndex];
+    // Check if all questions have been used
+    if (usedQuestions.length === questions["english"].length) {
+        // Reset the used questions if all have been asked
+        usedQuestions = [];
+    }
+
+    // Filter out the questions that have already been asked
+    const availableQuestions = questions[currentLanguage].filter(
+        (question) => !usedQuestions.includes(question)
+    );
+
+    // Select a random question from the available ones
+    const randomIndex = Math.floor(Math.random() * availableQuestions.length);
+    const randomQuestion = availableQuestions[randomIndex];
+
+    // Add the selected question to usedQuestions
+    usedQuestions.push(randomQuestion);
 
     // Display the question
     document.getElementById("random-question").textContent = randomQuestion;
 
-    // Reset language toggle to show "Switch to Tagalog"
+    // Reset language toggle to show "Translate to Tagalog"
     document.getElementById("language-toggle").textContent = "Translate to Tagalog";
 }
 
 // Function to translate the current question to the other language
 function translateQuestion() {
     const currentQuestion = document.getElementById("random-question").textContent;
-    
+
     // Find the current question index
     const currentIndex = questions[currentLanguage].indexOf(currentQuestion);
-    
+
     if (currentIndex !== -1) {
         // Toggle language
         currentLanguage = currentLanguage === "english" ? "tagalog" : "english";
-        
+
         // Update the question to the translated one
         document.getElementById("random-question").textContent = questions[currentLanguage][currentIndex];
     }
@@ -238,7 +253,7 @@ function translateQuestion() {
 // Toggle language function
 function toggleLanguage() {
     translateQuestion();
-    
+
     // Update the toggle button text based on the current language
     document.getElementById("language-toggle").textContent = `Translate to ${currentLanguage === "english" ? "Tagalog" : "English"}`;
 }

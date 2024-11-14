@@ -10972,6 +10972,15 @@ a.text-dark:focus {
   }
 }
 
+@media screen and (max-width: 586px) {
+
+
+  .palette .circle {
+    height: 100px;
+    width: 100px;
+  }
+}
+
 /* Addition */
 .ff p {
   font-size: .9rem;
