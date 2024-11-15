@@ -123,3 +123,21 @@ button:hover {
         /* Adjust padding on small screens */
     }
 }
+
+/* Styles for the question card */
+#random-question {
+    font-size: 1.5em;
+    padding: 20px;
+    text-align: center;
+    transition: opacity 0.5s ease-in-out;
+}
+
+/* Fade-out animation for the question */
+.fade-out {
+    opacity: 0;
+}
+
+/* Fade-in animation for the question */
+.fade-in {
+    opacity: 1;
+}

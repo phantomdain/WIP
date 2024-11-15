@@ -224,14 +224,30 @@ function generateRandomQuestion() {
     const randomIndex = Math.floor(Math.random() * availableQuestions.length);
     const randomQuestion = availableQuestions[randomIndex];
 
-    // Add the selected question to usedQuestions
-    usedQuestions.push(randomQuestion);
+    // Add fade-out effect before changing the question
+    const questionElement = document.getElementById("random-question");
+    questionElement.classList.add("fade-out");
 
-    // Display the question
-    document.getElementById("random-question").textContent = randomQuestion;
+    // Delay displaying the new question to allow fade-out effect
+    setTimeout(() => {
+        // Add the selected question to usedQuestions
+        usedQuestions.push(randomQuestion);
 
-    // Reset language toggle to show "Translate to Tagalog"
-    document.getElementById("language-toggle").textContent = "Translate to Tagalog";
+        // Display the question
+        questionElement.textContent = randomQuestion;
+
+        // Reset language toggle to show "Translate to Tagalog"
+        document.getElementById("language-toggle").textContent = "Translate to Tagalog";
+
+        // Apply fade-in effect
+        questionElement.classList.remove("fade-out");
+        questionElement.classList.add("fade-in");
+
+        // Remove the fade-in class after the animation completes
+        setTimeout(() => {
+            questionElement.classList.remove("fade-in");
+        }, 500); // Matches the transition duration in CSS
+    }, 500); // Matches the transition duration in CSS
 }
 
 // Function to translate the current question to the other language
