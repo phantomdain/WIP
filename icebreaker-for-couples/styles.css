@@ -17,6 +17,7 @@ body {
     /* Add padding for small screens */
     background: url(./bg.webp) no-repeat;
     background-size: cover;
+    background-position: center;
 }
 
 /* Container for the card */
