@@ -130,8 +130,9 @@ button:hover {
     button {
         font-size: 0.8rem;
         /* Even smaller button text */
-        padding: 0.7em 1.5em;
+        padding: 1.5em;
         /* Adjust padding on small screens */
+        width: 90%;
     }
 }
 
