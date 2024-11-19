@@ -304,9 +304,9 @@ const questions = {
     "Ano ang paborito mong paraan ng paggugol ng oras kasama ako?",
   ],
 };
-
 let currentLanguage = "english"; // Default language
 let usedQuestions = []; // To keep track of asked questions
+const totalQuestions = questions["english"].length; // Total number of questions
 
 // Function to generate a random question from the current language
 function generateRandomQuestion() {
@@ -314,10 +314,11 @@ function generateRandomQuestion() {
   currentLanguage = "english";
 
   // Check if all questions have been used
-  if (usedQuestions.length === questions["english"].length) {
+  if (usedQuestions.length === totalQuestions) {
     // Show "All questions were asked" message and hide buttons
     document.getElementById("random-question").textContent =
       "All questions were asked";
+    document.getElementById("question-counter").textContent = ""; // Clear the counter
     document.getElementById("generate-button").style.display = "none";
     document.getElementById("language-toggle").style.display = "none";
     return; // Stop further execution
@@ -343,6 +344,11 @@ function generateRandomQuestion() {
 
     // Display the question
     questionElement.textContent = randomQuestion;
+
+    // Update the counter
+    document.getElementById(
+      "question-counter"
+    ).textContent = `Number ${usedQuestions.length} of ${totalQuestions} questions`;
 
     // Reset language toggle to show "Translate to Tagalog"
     document.getElementById("language-toggle").textContent =

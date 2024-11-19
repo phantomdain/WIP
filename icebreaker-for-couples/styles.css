@@ -30,6 +30,10 @@ body {
     /* Ensure it takes up the full width of the screen */
 }
 
+.spacer {
+    padding: 20px;
+}
+
 /* Card styling */
 .card {
     background-color: #fff;
