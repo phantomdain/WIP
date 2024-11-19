@@ -58,6 +58,10 @@ body {
     /* Ensure long words break nicely on smaller screens */
 }
 
+div#question-counter {
+    opacity: .3;
+}
+
 /* Button styling */
 button {
     background-color: #4CAF50;
