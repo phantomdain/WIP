@@ -3,10 +3,10 @@ body {
     background: yellow;
 }
 
-.ib {
+img.ib {
     mix-blend-mode: darken;
     width: 100%;
-    padding: 20px
+    padding: 20px;
 }
 
 footer {
