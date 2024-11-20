@@ -276,7 +276,7 @@ const questions = {
     "Tingnan ang tao sa harap mo; ano sa tingin mo ang paborito nilang hobby?",
     "Kung ang grupong ito ay bubuo ng banda, sino ang gagampan ng anong role?",
     "Sino sa grupong ito ang pinaka-caring, at bakit?",
-    "Ano ang isang mabait na gesture na ginawa ng isang tao dito na di mo makakalimutan?",
+    "Ano ang isang kabutihan na ginawa ng isang tao dito na di mo makakalimutan?",
     "Tingnan ang tao sa kaliwa mo; ano sa tingin mo ang pinakamasayang memory nila?",
     "Sino sa grupong ito ang pinaka-ambisyoso?",
     "Kung may magsusulat ng libro dito, sino iyon at bakit?",
