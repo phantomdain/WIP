@@ -285,3 +285,19 @@ function toggleLanguage() {
 
 // Initialize the app by generating a random English question
 generateRandomQuestion();
+
+// Check if the user has already seen the lightbox in this session
+if (!sessionStorage.getItem("visited")) {
+  // Show the welcome lightbox with a fade-in effect
+  const lightbox = document.getElementById("welcome-lightbox");
+  lightbox.classList.add("show"); // Add "show" class to display the lightbox
+  sessionStorage.setItem("visited", "true"); // Mark that the user has visited
+}
+
+// Close lightbox when the user clicks the close button
+document
+  .getElementById("close-lightbox")
+  .addEventListener("click", function () {
+    const lightbox = document.getElementById("welcome-lightbox");
+    lightbox.classList.remove("show"); // Remove the "show" class to hide it
+  });

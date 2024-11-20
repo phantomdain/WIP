@@ -160,3 +160,47 @@ footer {
 .fade-in {
     opacity: 1;
 }
+
+/* Initially hide the lightbox */
+.lightbox {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.7);
+    justify-content: center;
+    align-items: center;
+    z-index: 9999;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+/* Show the lightbox */
+.lightbox.show {
+    display: flex;
+    opacity: 1;
+}
+
+/* Style for the lightbox content */
+.lightbox-content {
+    background-color: white;
+    padding: 20px;
+    border-radius: 10px;
+    text-align: center;
+}
+
+#close-lightbox {
+    margin-top: 20px;
+}
+
+/* Add fade-in effect */
+.lightbox {
+    opacity: 0;
+    transition: opacity 0.5s ease;
+}
+
+.lightbox.show {
+    opacity: 1;
+}
