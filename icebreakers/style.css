@@ -3,6 +3,12 @@ body {
     background: yellow;
 }
 
+.ib {
+    mix-blend-mode: darken;
+    width: 100%;
+    padding: 20px
+}
+
 footer {
     position: fixed;
 
