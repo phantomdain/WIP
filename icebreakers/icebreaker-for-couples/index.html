@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ice Breaker for Couples</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+    <div class="container">
+        <div class="row m-5">
+            <div class="col-12 col-md-4 ">
+                <a href="/"><img src="./Ang-Tanong.png" alt="logo" class="img-responsive"></a>
+            </div>
+        </div>
+        <!-- Card to display the random question -->
+        <div class="card">
+            <div class="card-content">
+                <h2 id="random-question">Loading...</h2>
+
+                <a id="language-toggle" onclick="toggleLanguage()">Translate to Tagalog</a>
+                <div class="spacer"></div>
+                <div id="question-counter"></div>
+            </div>
+        </div>
+        <button id="generate-button" class="btn btn-danger" onclick="generateRandomQuestion()">Generate
+            Question</button>
+    </div>
+    <footer>
+        <p>crafted with <span style="color: red;">&hearts;</span> by <a href="fb://profile/castillojohndaniel"
+                target="_blank" style="color: pink;">John Castillo</a></p>
+    </footer>
+    <script src="script.js"></script>
+</body>
+
+</html>

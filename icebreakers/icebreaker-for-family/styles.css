@@ -9,12 +9,14 @@
 body {
     font-family: Arial, sans-serif;
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
     height: 100vh;
     background-color: #f0f0f0;
     padding: 10px;
     /* Add padding for small screens */
+    background: radial-gradient(rgb(0, 211, 255) 0%, rgb(0, 117, 255) 100%);
 }
 
 /* Container for the card */
@@ -25,6 +27,12 @@ body {
     text-align: center;
     width: 100%;
     /* Ensure it takes up the full width of the screen */
+}
+
+.heading {
+    max-width: 800px;
+    width: 100%;
+    padding: 20px;
 }
 
 /* Card styling */
@@ -55,6 +63,10 @@ body {
     /* Ensure long words break nicely on smaller screens */
 }
 
+div#question-counter {
+    opacity: .3;
+}
+
 /* Button styling */
 button {
     background-color: #4CAF50;
@@ -81,11 +93,27 @@ button:hover {
 /* Generate question button styling */
 #generate-button {
     margin-top: 1em;
-    background-color: #007BFF;
+    background-color: rgb(154, 3, 255);
 }
 
 #generate-button:hover {
-    background-color: #0056b3;
+    background-color: #960691;
+}
+
+.img-responsive {
+    width: 100%;
+}
+
+footer {
+    position: fixed;
+
+    bottom: 10px;
+
+    text-align: center;
+    padding: 20px;
+    color: #fff;
+    font-family: Arial, sans-serif;
+    font-size: 14px;
 }
 
 /* Responsive adjustments for smaller screens */

@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Random Question Generator</title>
+    <title>Ice Breaker for Family</title>
     <link rel="stylesheet" href="styles.css">
 </head>
 
@@ -12,19 +12,24 @@
     <div class="container">
         <div class="row m-5">
             <div class="col-12 col-md-4 ">
-                <a href="/"><img src="./dains-new-logo.svg" alt=""></a>
+                <a href="/"><img class="heading" src="./Ang-Tanong.png" alt="logo" class="img-responsive"></a>
             </div>
-            <hr>
         </div>
         <!-- Card to display the random question -->
         <div class="card">
             <div class="card-content">
+                <div id="question-counter"></div>
                 <h2 id="random-question">Loading...</h2>
                 <button id="language-toggle" onclick="toggleLanguage()">Translate to Tagalog</button>
             </div>
         </div>
-        <button id="generate-button" onclick="generateRandomQuestion()">Generate Question</button>
+        <button id="generate-button" class="btn btn-danger" onclick="generateRandomQuestion()">Generate
+            Question</button>
     </div>
+    <footer>
+        <p>crafted with <span style="color: lightblue;font-size: 1.5rem;">&hearts;</span> by <a
+                href="fb://profile/castillojohndaniel" target="_blank" style="color: aquamarine;">John Castillo</a></p>
+    </footer>
 
     <script src="script.js"></script>
 </body>

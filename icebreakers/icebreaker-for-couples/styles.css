@@ -9,6 +9,7 @@
 body {
     font-family: Arial, sans-serif;
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
     height: 100vh;
@@ -97,6 +98,17 @@ button:hover {
 
 .img-responsive {
     width: 100%;
+}
+
+footer {
+    position: fixed;
+
+    bottom: 10px;
+
+    text-align: center;
+    padding: 20px;
+    color: #fff;
+    font-size: 14px;
 }
 
 /* Responsive adjustments for smaller screens */
