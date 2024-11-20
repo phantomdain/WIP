@@ -4,9 +4,10 @@ body {
 }
 
 img.ib {
-    mix-blend-mode: darken;
     width: 100%;
     padding: 20px;
+    mix-blend-mode: darken;
+
 }
 
 footer {
