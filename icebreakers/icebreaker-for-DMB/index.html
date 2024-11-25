@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="../assets/favicon.png" type="image/x-icon">
+    <title>Random Question Generator</title>
+    <meta name="Description"
+        content="Discover fun and thought-provoking icebreaker questions with the Icebreaker Question Generator by John Castillo. Perfect for getting to know new people or sparking meaningful conversations. Try it now!" />
+    <link rel="stylesheet" href="../default.css">
+    <link rel="stylesheet" href="styles.css">
+
+</head>
+
+<body>
+    <div class="container">
+        <div class="row m-5">
+            <div class="col-12 col-md-4 p-4">
+                <a href="../"><img class="heading" src="./logo.svg" alt=""></a>
+            </div>
+        </div>
+        <!-- Card to display the random question -->
+        <div class="card">
+            <div class="card-content">
+                <h2 id="random-question">Loading...</h2>
+                <button id="language-toggle" onclick="toggleLanguage()" style="display: none;">Translate to
+                    Tagalog</button>
+            </div>
+        </div>
+        <button id="generate-button" onclick="generateRandomQuestion()">Generate Question</button>
+    </div>
+    <footer>
+        <p>crafted with <span style="color: red;">&hearts;</span> by <a href="fb://profile/castillojohndaniel"
+                onClick="window.location='https://www.facebook.com/castillojohndaniel';" target="_blank">John
+                Castillo</a></p>
+    </footer>
+
+    <!-- Lightbox Modal Structure -->
+    <div id="welcome-lightbox" class="lightbox">
+        <div class="lightbox-content">
+            <h2>Hey there!</h2>
+            <p>Welcome to Fulfillment Team!</p>
+
+            <p>Just answer the questions honestly and let the conversation flow. The goal is to have fun, connect, and
+                maybe even learn something new about yourself and others. Enjoy!</p>
+
+            <button id="close-lightbox" class="close-btn">Got it!</button>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
