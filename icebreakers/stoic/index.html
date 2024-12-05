@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Stoic Question Generator</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f9;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+
+        .container {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            background: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            width: 90%;
+            max-width: 400px;
+            margin: auto;
+        }
+
+        .container h1 {
+            color: #333;
+            font-size: 2rem;
+            margin: 0 0 1rem;
+        }
+
+        .question {
+            font-size: 1.5rem;
+            margin: 2rem 0;
+            color: #555;
+            min-height: 3rem;
+        }
+
+        button {
+            padding: 12px 20px;
+            font-size: 1rem;
+            color: #fff;
+            background: #007BFF;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            width: 100%;
+            max-width: 300px;
+            margin: 0 auto 20px;
+        }
+
+        button:disabled {
+            background: #ccc;
+            cursor: not-allowed;
+        }
+
+        .footer {
+            text-align: center;
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+            background: #f4f4f9;
+            padding: 10px 0;
+            box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        .counter {
+            color: #666;
+            font-size: 0.9rem;
+        }
+
+        @media (min-width: 768px) {
+            .container h1 {
+                font-size: 2.5rem;
+            }
+
+            .question {
+                font-size: 1.8rem;
+            }
+
+            button {
+                font-size: 1.2rem;
+            }
+
+            .counter {
+                font-size: 1rem;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <h1 class="question" id="question">Click the button to get a question.</h1>
+    </div>
+    <div class="footer">
+        <button id="generateButton">Generate Question</button>
+        <div class="counter" id="counter">Questions asked: 0</div>
+    </div>
+
+    <script>
+        const questions = [
+            "What is something you’re currently worrying about that’s beyond your control?",
+            "How do you decide when to let go of something that’s troubling you?",
+            "Have you ever found peace in accepting a difficult situation? How did it feel?",
+            "How do you respond when things don’t go as planned?",
+            "What helps you focus on what you can control?",
+            "What does living virtuously mean to you?",
+            "Which virtue do you find the most challenging to practice: wisdom, courage, justice, or self-discipline?",
+            "How do you handle situations where doing the right thing is difficult?",
+            "What motivates you to act justly even when no one is watching?",
+            "Do you believe that character is more important than success? Why?",
+            "What is a challenge you faced that ultimately made you stronger?",
+            "How do you view failure?",
+            "How do you approach setbacks in your personal or professional life?",
+            "Can you think of a time when adversity taught you a valuable lesson?",
+            "How do you stay composed in the face of criticism or judgment?",
+            "What role does gratitude play in your daily life?",
+            "How often do you reflect on your actions and thoughts?",
+            "How do you stay present when life feels overwhelming?",
+            "Have you ever consciously observed your emotions before reacting?",
+            "What practices help you maintain a calm and clear mind?",
+            "How do you handle conflicts with others while staying true to your values?",
+            "How do you respond to people who treat you unfairly?",
+            "What do you believe is the most important quality in a friend?",
+            "How do you balance kindness with honesty?",
+            "How do you maintain your composure in heated arguments?",
+            "How do you reflect on the idea that life is short?",
+            "Does thinking about mortality motivate you? If so, how?",
+            "How do you find meaning in life, knowing it’s finite?",
+            "How do you prepare for or process loss?",
+            "What would you like your legacy to be?",
+            "What drives you to get out of bed in the morning?",
+            "What gives your life the most meaning?",
+            "How do you define a life well-lived?",
+            "How do you balance your personal goals with contributing to the greater good?",
+            "What is something you’ve done recently that aligned with your purpose?",
+            "How do you manage anger without letting it control you?",
+            "What helps you respond to negative emotions in a healthy way?",
+            "How do you maintain emotional balance during stressful situations?",
+            "What role do positive emotions play in your life?",
+            "How do you resist being carried away by fleeting feelings?",
+            "What’s the most valuable lesson you’ve learned from a mistake?",
+            "Who or what has been your greatest teacher in life?",
+            "How do you approach making tough decisions?",
+            "What helps you discern truth from falsehood?",
+            "What does self-improvement look like for you?",
+            "How do you define freedom in your life?",
+            "What habits have you cultivated to maintain discipline?",
+            "How do you resist temptations that don’t align with your goals?",
+            "What role does self-control play in your happiness?",
+            "How do you ensure your desires don’t distract you from what truly matters?"
+        ];
+
+        const askedQuestions = new Set();
+        const questionElement = document.getElementById('question');
+        const button = document.getElementById('generateButton');
+        const counterElement = document.getElementById('counter');
+
+        let counter = 0;
+
+        function typewriterEffect(element, text, callback) {
+            let i = 0;
+            element.textContent = '';
+
+            function typeNextLetter() {
+                if (i < text.length) {
+                    element.textContent += text.charAt(i);
+                    i++;
+                    setTimeout(typeNextLetter, 50);
+                } else if (callback) {
+                    callback();
+                }
+            }
+
+            typeNextLetter();
+        }
+
+        function generateQuestion() {
+            if (askedQuestions.size === questions.length) {
+                typewriterEffect(questionElement, "All questions have been asked in this session.");
+                button.disabled = true;
+                return;
+            }
+
+            let randomIndex;
+            do {
+                randomIndex = Math.floor(Math.random() * questions.length);
+            } while (askedQuestions.has(randomIndex));
+
+            askedQuestions.add(randomIndex);
+            const selectedQuestion = questions[randomIndex];
+            typewriterEffect(questionElement, selectedQuestion);
+            counter++;
+            counterElement.textContent = `Questions asked: ${counter}`;
+        }
+
+        button.addEventListener('click', generateQuestion);
+    </script>
+</body>
+
+</html>
